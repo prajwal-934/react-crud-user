@@ -1,0 +1,15 @@
+.profile-container{
+    width: 60%;
+    background-color: azure;
+}
+
+.profile-container h1{
+    text-align: center;
+}
+
+.profiles{
+    padding: 20px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap:20px;
+}

@@ -1,0 +1,46 @@
+.adduser-section{
+    width: 27%;
+}
+
+.adduser-form{
+    width: 100%;
+}
+
+form {
+    background-color: #fff;
+    padding: 30px 20px;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+input[type=text] , input[type=email] , input[type=password]{
+    width: 100%;
+    padding: 12px 20px;
+   
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+/* Styling form-control Class */
+.form-control {
+    margin-bottom: 25px;
+}
+
+.form-control label {
+    display: block;
+    margin-bottom: 6px;
+}
+
+button {
+    background-color: yellowgreen;
+    border: 1px solid #777;
+    border-radius: 2px;
+    font-family: inherit;
+    font-size: 21px;
+    display: block;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding: 10px 30px;
+}
