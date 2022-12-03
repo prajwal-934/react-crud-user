@@ -2,10 +2,11 @@ const moongose=require('mongoose')
 const validator = require('validator')
 
 const userSchema = new moongose.Schema({
-    name :{
+    userName :{
         type : String,
         trim : true,
-        lowercase : true
+        lowercase : true,
+        required: true
      
     },
     email : {
@@ -24,7 +25,8 @@ const userSchema = new moongose.Schema({
 
     occupation : {
         type : String,
-        required : true
+        required : false,
+        default : "No Occupation"
     },
 
     password : {

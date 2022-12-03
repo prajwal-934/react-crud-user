@@ -1,56 +1,81 @@
-import React from "react";
+import React , {useState} from "react";
 import './AddUser.css'
 
-const AddUser = () => {
+
+const AddUser = (props) => {
+    const[user,setUser]=useState({
+        userName : "",
+        email : "",
+        age : "",
+        occupation : "",
+        password : ""
+    });
+
+    let propName , value
+    const handleInput=(event)=>{
+      
+         propName = event.target.name;
+         value = event.target.value;
+         setUser({...user, [propName]:value})
+    }
+
+    const handleSubmit=(event)=>{
+        event.preventDefault()
+        props.onCreate(user)
+    }
 
     return (
         <div className="adduser-section">
             <h2>Add User Details</h2>
             <div className="adduser-form">
-                <form>
-                    <div class="form-control">
-                        <label for="name" id="label-name">
+                <form onSubmit={handleSubmit}>
+                    <div className="form-control">
+                        <label htmlFor="name" id="label-name">
                             Name
                         </label>
                         <input type="text"
                             id="name"
-                            placeholder="Enter your name" />
+                            placeholder="Enter your name" name="userName" value={user.userName} onChange={handleInput} />
                     </div>
 
-                    <div class="form-control">
-                        <label for="email" id="label-name">
+                    <div className="form-control">
+                        <label htmlFor="email" id="label-name">
                             Email
                         </label>
                         <input type="email"
                             id="email"
-                            placeholder="Enter your email" />
+                            placeholder="Enter your email" name="email" value={user.email} onChange={handleInput} />
                     </div>
 
-                    <div class="form-control">
-                        <label for="dob" id="label-name">
+                    <div className="form-control">
+                        <label htmlFor="age" id="label-name" >
                             DOB
                         </label>
                         <input type="date"
-                            id="dob"
-                            placeholder="Enter your email" />
+                            id="age"
+                            name="age"
+                            onChange={handleInput} 
+                            value={user.age}/>
                     </div>
 
-                    <div class="form-control">
-                        <label for="occupation" id="label-name">
+                    <div className="form-control">
+                        <label htmlFor="occupation" id="label-name">
                             Occupation
                         </label>
                         <input type="text"
+                            value={user.occupation}
                             id="occupation"
-                            placeholder="Enter your Occupation" />
+                            placeholder="Enter your Occupation" name="occupation" onChange={handleInput}/>
                     </div>
 
-                    <div class="form-control">
-                        <label for="password" id="label-name">
+                    <div className="form-control">
+                        <label htmlFor="password" id="label-name">
                             Password
                         </label>
                         <input type="password"
                             id="password"
-                            placeholder="Enter your Password" />
+                            value={user.password}
+                            placeholder="Enter your Password" name="password" onChange={handleInput}/>
                     </div>
                     <button type="submit" value="submit">
                         Submit

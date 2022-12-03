@@ -6,6 +6,7 @@ body{
 .main-section{
     margin-top: 50px;
     align-items: flex-start;
+    background-color: azure;
 }
 
 .spacer{

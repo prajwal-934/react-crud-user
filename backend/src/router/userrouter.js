@@ -44,7 +44,7 @@ router.get('/user',async (req,res)=>{
 router.patch('/user/:id',async (req,res)=>{
     const _id = req.params.id;
     const updates = Object.keys(req.body)
-    const allowdFieldsToUpdate = ["name","age","occupation","email","password"]
+    const allowdFieldsToUpdate = ["userName","age","occupation","email","password"]
     const isAllowed=updates.every((update)=>allowdFieldsToUpdate.includes(update))
     if(!isAllowed){
         res.status(400).send("Invalid Updates!!!")
