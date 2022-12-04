@@ -29,6 +29,9 @@ function App() {
         console.log("User Created Successfully")
       }
     }).catch((e) => { console.log("something went wrong") })
+
+    const updatedUsers = [...users, newUser]
+    setUsers(updatedUsers)
   }
 
 
@@ -37,10 +40,10 @@ function App() {
     <div>
       <Navbar />
       <div className='main-section flex'>
-        <ProfileCardContainer />
+        <ProfileCardContainer users={users}/>
         <AddUser onCreate={createUser} />
       </div>
-      <button onClick={()=>{console.log(users)}}>Show USers Array</button>
+      {/* <button onClick={()=>{console.log(users)}}>Show USers Array</button> */}
       <div className='spacer'></div>
     </div>
   )
