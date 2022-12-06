@@ -1,8 +1,10 @@
-import React , {useState} from "react";
+import React , {useState,useContext} from "react";
 import './AddUser.css'
+import ProfilesContext from "../Context/UserContext";
 
+const AddUser = () => {
+    const {createUser} = useContext(ProfilesContext)
 
-const AddUser = (props) => {
     const[user,setUser]=useState({
         userName : "",
         email : "",
@@ -21,7 +23,7 @@ const AddUser = (props) => {
 
     const handleSubmit=(event)=>{
         event.preventDefault()
-        props.onCreate(user)
+        createUser(user)
     }
 
     return (

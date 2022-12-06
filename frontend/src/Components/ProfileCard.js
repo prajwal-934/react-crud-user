@@ -1,8 +1,18 @@
-import React from "react";
+import React ,{useContext} from "react";
+import ProfilesContext from "../Context/UserContext";
 import profileImage from '../Assets/Images/img_avatar.png'
 import './ProfileCard.css'
 
 const ProfileCard = ({user}) => {
+
+    const {deleteUserById}=useContext(ProfilesContext)
+
+    const handleDelete=()=>{
+        deleteUserById(user._id)
+    }
+
+
+
     const {userName,email,occupation,age,password}=user
     return (
         <div className="card">
@@ -15,6 +25,7 @@ const ProfileCard = ({user}) => {
                 <p><span style={{fontWeight:"1000"}}>Age :</span> {age}</p>
                 <p><span style={{fontWeight:"1000"}}>Occupation :</span> {occupation}</p>
                 <p><span style={{fontWeight:"1000"}}>Password :</span> {password}</p>
+                <button onClick={handleDelete} className="delete-btn">Delete</button>
             </div>
         </div>
         

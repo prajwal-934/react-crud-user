@@ -1,8 +1,14 @@
-import React from "react";
+import React , {useContext} from "react";
 import ProfileCard from './ProfileCard'
 import './ProfileCardContainer.css'
-const ProfileCardContainer=({users})=>{
+import ProfilesContext from "../Context/UserContext";
+
+const ProfileCardContainer=()=>{
+
+    const {users} = useContext(ProfilesContext)
     
+    console.log(users)
+
     const renderUser = users.map((user)=>{
         return (
             <ProfileCard key={user._id} user={user}/>
