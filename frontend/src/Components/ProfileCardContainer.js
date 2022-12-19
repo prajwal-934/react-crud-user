@@ -7,8 +7,6 @@ const ProfileCardContainer=()=>{
 
     const {users} = useContext(ProfilesContext)
     
-    console.log(users)
-
     const renderUser = users.map((user)=>{
         return (
             <ProfileCard key={user._id} user={user}/>

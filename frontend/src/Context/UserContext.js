@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react'
+import { createContext, useState , useCallback } from 'react'
 import axios from 'axios'
 import getAge from 'get-age'
 const ProfilesContext = createContext()
@@ -6,10 +6,14 @@ const ProfilesContext = createContext()
 function Provider({ children }) {
     const [users, setUsers] = useState([])
 
-    const getAllProfiles = async () => {
+    const getAllProfiles = useCallback(async () => {
         const response = await axios.get(`user`)
         setUsers(response.data)
-    }
+    },[]
+    )
+
+
+
     const createUser = async (newUser) => {
         newUser = ({ ...newUser, age: getAge(newUser.age) })
         await axios.post('user', newUser).then((res) => {

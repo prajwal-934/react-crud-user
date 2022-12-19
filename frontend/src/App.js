@@ -12,7 +12,7 @@ function App() {
 
   useEffect(()=>{
     getAllProfiles();
-  },[])
+  },[getAllProfiles])
 
   return (
     <div>
