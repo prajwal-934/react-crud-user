@@ -1,29 +1,30 @@
-.navbar{
+.navbar {
     background-color: yellowgreen;
 }
 
-.flex{
+.flex {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.logo img{
+.logo img {
     width: 100%;
 }
-.logo{
+
+.logo {
     width: 20%;
 }
 
-.navbar-links ul{
+.navbar-links ul {
     list-style: none;
 }
 
-.navbar-links ul li{
+.navbar-links ul li {
     padding: 15px 30px;
 }
 
-.nav-link{
+.nav-link {
     color: black;
     text-decoration: none;
     font-weight: 600;

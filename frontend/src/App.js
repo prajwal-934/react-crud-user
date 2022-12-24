@@ -1,9 +1,9 @@
 import React, { useEffect , useContext } from 'react'
-import Navbar from './Components/Navbar'
+import Navbar from './components/navbar/Navbar'
 import './App.css'
-import AddUser from './Components/AddUser'
-import ProfileCardContainer from './Components/ProfileCardContainer'
-import ProfilesContext from './Context/UserContext'
+import AddUser from './components/addUsers/AddUser'
+import ProfileCardContainer from './components/profileCardContainer/ProfileCardContainer'
+import ProfilesContext from './context/UserContext'
 
 
 function App() {

@@ -1,31 +1,38 @@
-import React , {useState,useContext} from "react";
-import './AddUser.css'
-import ProfilesContext from "../Context/UserContext";
+import React, { useState, useContext } from "react";
+import './addUser.css'
+import ProfilesContext from "../../context/UserContext";
 
 const AddUser = () => {
-    const {createUser} = useContext(ProfilesContext)
+    const { createUser } = useContext(ProfilesContext)
 
-    const[user,setUser]=useState({
-        userName : "",
-        email : "",
-        age : "",
-        occupation : "",
-        password : ""
+    const [user, setUser] = useState({
+        userName: "",
+        email: "",
+        age: "",
+        occupation: "",
+        password: ""
     });
 
-    let propName , value
-    const handleInput=(event)=>{
-      
-         propName = event.target.name;
-         value = event.target.value;
-         setUser({...user, [propName]:value})
+    const handleInput = (event) => {
+        setUser({ ...user, [event.target.name]: event.target.value })
     }
 
-    const handleSubmit=(event)=>{
-        event.preventDefault()
-        createUser(user)
-    }
+    const handleSubmit = (event) => {
+        if (user) {
 
+        } else {
+            event.preventDefault()
+            createUser(user)
+            setUser({
+                userName: "",
+                email: "",
+                age: "",
+                occupation: "",
+                password: ""
+            })
+        }
+    }
+    const { userName, email, age, occupation, password } = user
     return (
         <div className="adduser-section">
             <h2>Add User Details</h2>
@@ -37,7 +44,7 @@ const AddUser = () => {
                         </label>
                         <input type="text"
                             id="name"
-                            placeholder="Enter your name" name="userName" value={user.userName} onChange={handleInput} />
+                            placeholder="Enter your name" name="userName" value={userName} onChange={handleInput} />
                     </div>
 
                     <div className="form-control">
@@ -46,7 +53,7 @@ const AddUser = () => {
                         </label>
                         <input type="email"
                             id="email"
-                            placeholder="Enter your email" name="email" value={user.email} onChange={handleInput} />
+                            placeholder="Enter your email" name="email" value={email} onChange={handleInput} />
                     </div>
 
                     <div className="form-control">
@@ -56,8 +63,8 @@ const AddUser = () => {
                         <input type="date"
                             id="age"
                             name="age"
-                            onChange={handleInput} 
-                            value={user.age}/>
+                            onChange={handleInput}
+                            value={age} />
                     </div>
 
                     <div className="form-control">
@@ -65,9 +72,9 @@ const AddUser = () => {
                             Occupation
                         </label>
                         <input type="text"
-                            value={user.occupation}
+                            value={occupation}
                             id="occupation"
-                            placeholder="Enter your Occupation" name="occupation" onChange={handleInput}/>
+                            placeholder="Enter your Occupation" name="occupation" onChange={handleInput} />
                     </div>
 
                     <div className="form-control">
@@ -76,8 +83,8 @@ const AddUser = () => {
                         </label>
                         <input type="password"
                             id="password"
-                            value={user.password}
-                            placeholder="Enter your Password" name="password" onChange={handleInput}/>
+                            value={password}
+                            placeholder="Enter your Password" name="password" onChange={handleInput} />
                     </div>
                     <button type="submit" value="submit">
                         Submit

@@ -1,4 +1,4 @@
-import { createContext, useState , useCallback } from 'react'
+import { createContext, useState, useCallback } from 'react'
 import axios from 'axios'
 import getAge from 'get-age'
 const ProfilesContext = createContext()
@@ -9,7 +9,7 @@ function Provider({ children }) {
     const getAllProfiles = useCallback(async () => {
         const response = await axios.get(`user`)
         setUsers(response.data)
-    },[]
+    }, []
     )
 
 
@@ -21,14 +21,12 @@ function Provider({ children }) {
                 console.log("User Created Successfully")
             }
         }).catch((e) => { console.log("something went wrong") })
-
         const updatedUsers = [...users, newUser]
         setUsers(updatedUsers)
     }
 
     const deleteUserById = async (userId) => {
         await axios.delete(`user/${userId}`)
-
         const updatedUserList = users.filter((user) => {
             return user._id !== userId;
         })
@@ -47,8 +45,8 @@ function Provider({ children }) {
 
     return (<ProfilesContext.Provider value={globalUserContext}>
         {children}
-        </ProfilesContext.Provider>
-        );
+    </ProfilesContext.Provider>
+    );
 }
 
 export { Provider }
