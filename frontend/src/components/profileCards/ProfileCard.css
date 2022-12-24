@@ -23,3 +23,11 @@
   background-color: red;
   padding: 5px, 10px;
 }
+
+.card-key{
+  font-weight: 1000;
+}
+
+.card-img{
+  width: 100%;
+}

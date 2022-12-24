@@ -18,9 +18,6 @@ const AddUser = () => {
     }
 
     const handleSubmit = (event) => {
-        if (user) {
-
-        } else {
             event.preventDefault()
             createUser(user)
             setUser({
@@ -30,7 +27,6 @@ const AddUser = () => {
                 occupation: "",
                 password: ""
             })
-        }
     }
     const { userName, email, age, occupation, password } = user
     return (
